@@ -22,7 +22,7 @@ docker build --build-arg UID=$(id -u) -t snowball-image .
 
 docker run -v /$(pwd)/vm:/root/VirtualBox\ VMs snowball-image
 
-vboxmanage registervm /$(pwd)/vm/alpine2/alpine2.vbox
+vboxmanage registervm $(pwd)/vm/alpine2/alpine2.vbox
 ```
 
 To uninstall vm run this from snowball directory:
