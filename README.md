@@ -13,21 +13,21 @@ For windows:
 ## Commands
 From snowball directory run:
 ```yaml
-./scripts/run.sh
+./scripts/run.sh [vm service name]
 ```
 
 For manual execution:
 ```yaml
-docker build --build-arg UID=$(id -u) -t snowball-image .
+docker build -t snowball-image .
 
-docker run -v /$(pwd)/vm:/root/VirtualBox\ VMs snowball-image
+docker run -v /$(pwd)/vm:/root/VirtualBox\ VMs snowball-image $(id -u) [vm service name]
 
-vboxmanage registervm $(pwd)/vm/alpine2/alpine2.vbox
+vboxmanage registervm $(pwd)/vm/[vm service name]/[vm service name].vbox
 ```
 
 To uninstall vm run this from snowball directory:
 ```yaml
-./scripts/uninstall.sh
+./scripts/uninstall.sh [vm service name]
 ```
 
 ### Authors

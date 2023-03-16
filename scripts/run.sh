@@ -1,6 +1,8 @@
 #!/bin/bash
 
-docker build --build-arg UID=$(id -u) -t test .
-docker run -v /$(pwd)/vm:/root/VirtualBox\ VMs test
+# $1 = vm service name
 
-vboxmanage registervm $(pwd)/vm/alpine2/alpine2.vbox
+docker build --build-arg UID=$(id -u) -t snowball-image .
+docker run -v /$(pwd)/vm:/root/VirtualBox\ VMs snowball-image $(id -u) $1
+
+vboxmanage registervm $(pwd)/vm/$1/$1.vbox
