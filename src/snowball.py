@@ -3,18 +3,17 @@ import os
 import sys
 
 def main():
-    f = open("./common-schemas/metadata.json")
+    f = open(sys.argv[2])
     data = json.load(f)
     f.close()
-    url = data[0]["url"]
-    name = data[0]["name"]
 
-    download_command = "./scripts/download-image.sh " + url + " " + sys.argv[2]
-    init_command = "./scripts/init-vm.sh " + sys.argv[1] + " " + sys.argv[2]
+    for service in data:
+        url = service["url"]
+        name = service["service-name"]
+        download_command = "/app/scripts/download-image.sh " + url + " " + name
+        init_command = "/app/scripts/init-vm.sh " + sys.argv[1] + " " + name
+        os.system(download_command)
+        os.system(init_command)
 
-    os.system(download_command)
-    os.system(init_command)
-    print(sys.argv[1])
-    print(sys.argv[2])
 
 main()

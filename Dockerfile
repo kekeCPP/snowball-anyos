@@ -16,6 +16,6 @@ RUN chmod 777 -R ./scripts
 
 
 # CMD ["/bin/bash", "-c", "python3 ./src/snowball.py ${USER_ID}"]
-ENTRYPOINT ["python3", "./src/snowball.py"]
+ENTRYPOINT ["python3", "/app/src/snowball.py"]
 # CMD ["/bin/bash", "-c", "python3 ./src/snowball.py ${USER_ID} Alpine"]
 # CMD ["/bin/bash"]

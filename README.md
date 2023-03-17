@@ -10,6 +10,11 @@ For windows:
 - Git bash
 - Add virtualbox installation folder to system path
 
+## Clone this repo
+```yaml
+git clone https://github.com/kekeCPP/snowball-anyos --config core.autocrlf=input
+```
+
 ## Commands
 From snowball directory run:
 ```yaml
@@ -20,7 +25,7 @@ For manual execution:
 ```yaml
 docker build -t snowball-image .
 
-docker run -v /$(pwd)/vm:/root/VirtualBox\ VMs snowball-image $(id -u) [vm service name]
+docker run -v /$(pwd)/vm:/root/VirtualBox\ VMs snowball-image $(id -u) ./common-schemas/metadata.json
 
 vboxmanage registervm $(pwd)/vm/[vm service name]/[vm service name].vbox
 ```
